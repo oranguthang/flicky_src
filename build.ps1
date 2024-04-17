@@ -1,4 +1,4 @@
-$env:Path += ';D:\Games\aswcurr\bin'
+$env:Path += ';C:\aswcurr\bin'
 
 Copy-Item flicky.s ida
 

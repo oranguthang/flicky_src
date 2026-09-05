@@ -60,7 +60,7 @@ LoadSegaScreen_WaitLoop:  ; was: loc_480
                 bgt.s   LoadSegaScreen_Return
                 move.w  d2,d3
                 addq.w  #2,d2
-                lea     (unk_FFF7E4).w,a1
+                lea     (Ram_PaletteEntry2).w,a1
                 moveq   #$A,d7
 
 LoadSegaScreen_PaletteLoop:  ; was: loc_49E
@@ -82,13 +82,13 @@ sega_pal:       dc.b    $E, $C0, $E, $A0, $E, $80, $E, $60, $E, $40
                 dc.b    6, 0, 8, 0, $A, 0, $C, 0, $E, 0
                 dc.b    $E, $20, $E, $40, $E, $60, $E, $80, $E, $A0
 SegaScreen:
-                btst    #7,(word_FFFF8E+1).w
+                btst    #7,(Ram_Joypad+1).w
                 bne.s   SegaScreen_SkipDelay
-                cmpi.w  #$78,(word_FFFF92).w
+                cmpi.w  #$78,(Ram_FrameCounter).w
                 bcs.s   SegaScreen_PlaySound
 
 SegaScreen_SkipDelay:  ; was: loc_4EC
-                move.w  #0,(word_FFFFC0).w
+                move.w  #0,(Ram_NextGameMode).w
 
 SegaScreen_PlaySound:  ; was: loc_4F2
                 bra.w   Sound_QueueSFX

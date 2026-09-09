@@ -18,7 +18,7 @@
   "delta_history": {
     "base_commit": "5a8f36505730ed5d11d91844271f3eb1f58ebdab",
     "tip": "release-commit",
-    "commit_count": 18
+    "commit_count": 19
   },
   "included_scope": [
     "canonical-preservation-profile",
@@ -153,13 +153,27 @@
     {
       "id": "draft-history-rewrite",
       "kind": "documentation",
-      "summary": "Record the owner-approved old-to-new mapping for the unpublished Source 2.0 draft and retain its review rationale.",
+      "summary": "Record the owner-approved old-to-new mapping for the unpublished Source 2.0 draft and finalize its tag-ready release boundary.",
       "commits": [
         "e6ee8ec95ac123b0af7e4c10a9ab42e0563a3b3a",
+        "e0f590654d0a5c585ad02fe7640560cc5482c432"
+      ],
+      "evidence": [
+        "docs/provenance/source_2_0_rewrite.md",
+        "config/source_reconstruction_2_0.json"
+      ]
+    },
+    {
+      "id": "release-review-hardening",
+      "kind": "tooling",
+      "summary": "Enforce the approved emulator binary, make Graphics Studio builds fail closed on save errors, and exercise every Tk Studio action on a real workstation runtime.",
+      "commits": [
         "release-commit"
       ],
       "evidence": [
-        "docs/provenance/source_2_0_rewrite.md"
+        "verify-toolchain",
+        "smoke-studios-workstation",
+        "tests/authoring/test_graphics_studio.py"
       ]
     }
   ],
@@ -309,6 +323,20 @@
           "scripts/authoring/level_studio_model.py",
           "scripts/authoring/graphics_studio_model.py",
           "scripts/authoring/sound_studio_model.py"
+        ],
+        "scenarios": [],
+        "artifacts": []
+      }
+    },
+    "workstation_editor_actions": {
+      "status": "satisfied",
+      "evidence": {
+        "targets": [
+          "smoke-studios-workstation"
+        ],
+        "files": [
+          "config/authoring/content_studios.json",
+          "scripts/authoring/studio_workstation_smoke.py"
         ],
         "scenarios": [],
         "artifacts": []
@@ -661,6 +689,7 @@
     "check-content-zero-edit",
     "validate-content",
     "check-studios",
+    "smoke-studios-workstation",
     "smoke-level-playtest",
     "verify-sound-sequencer",
     "source-2-audit",
@@ -707,6 +736,7 @@
       "sound"
     ],
     "headless_gate": "check-studios",
+    "workstation_gate": "smoke-studios-workstation",
     "editable_build_gate": "build-content",
     "level_playtest_target": "playtest-level",
     "level_playtest_gate": "smoke-level-playtest",
@@ -720,7 +750,8 @@
       ],
       "exact_ordered_chip_writes": 2624,
       "max_timing_error_frames": 2.1,
-      "emulator_commit": "f62b2cf50cb1697eff335e846c8270e7b81f2d2a"
+      "emulator_commit": "f62b2cf50cb1697eff335e846c8270e7b81f2d2a",
+      "emulator_sha256": "d536817f33cc9871e2749bc0d5ced8956502d3182541a07e1d44279fdf45d141"
     }
   }
 }

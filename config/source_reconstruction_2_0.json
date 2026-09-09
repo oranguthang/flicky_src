@@ -18,7 +18,7 @@
   "delta_history": {
     "base_commit": "5a8f36505730ed5d11d91844271f3eb1f58ebdab",
     "tip": "release-commit",
-    "commit_count": 22
+    "commit_count": 23
   },
   "included_scope": [
     "canonical-preservation-profile",
@@ -199,11 +199,26 @@
       "kind": "tooling",
       "summary": "Verify the selected assembler and converter paths before use and pin the converter source and binary origins.",
       "commits": [
-        "release-commit"
+        "3c1b45c00474f9ab3f06c2b4e4f3e97b4895d22e"
       ],
       "evidence": [
         "config/toolchain.json",
         "verify-toolchain",
+        "tests/validation/test_toolchain.py",
+        "tests/validation/test_make_interface.py"
+      ]
+    },
+    {
+      "id": "emulator-reproducibility",
+      "kind": "tooling",
+      "summary": "Verify the selected emulator before every runtime launch and prepare builds only from the pinned source revision.",
+      "commits": [
+        "release-commit"
+      ],
+      "evidence": [
+        "verify-emulator",
+        "scripts/build/prepare_gens_checkout.py",
+        "tests/build/test_prepare_gens_checkout.py",
         "tests/validation/test_toolchain.py",
         "tests/validation/test_make_interface.py"
       ]
@@ -450,11 +465,13 @@
       "status": "satisfied",
       "evidence": {
         "targets": [
-          "verify-toolchain"
+          "verify-toolchain",
+          "verify-emulator"
         ],
         "files": [
           "config/toolchain.json",
-          "bin/README.md"
+          "bin/README.md",
+          "scripts/build/prepare_gens_checkout.py"
         ],
         "scenarios": [],
         "artifacts": []
@@ -726,6 +743,7 @@
   ],
   "release_commands": [
     "verify-toolchain",
+    "verify-emulator",
     "check-assets",
     "lint",
     "test",

@@ -8,7 +8,7 @@
   "release_kind": "baseline",
   "tag": "source-reconstruction-2.0",
   "publish_remote": "origin",
-  "status": "development",
+  "status": "tag-ready",
   "predecessor": {
     "manifest": "config/source_reconstruction_1_0.json",
     "tag": "source-reconstruction-1.0",
@@ -17,8 +17,8 @@
   },
   "delta_history": {
     "base_commit": "5a8f36505730ed5d11d91844271f3eb1f58ebdab",
-    "tip": "pending",
-    "commit_count": null
+    "tip": "release-commit",
+    "commit_count": 18
   },
   "included_scope": [
     "canonical-preservation-profile",
@@ -155,6 +155,7 @@
       "kind": "documentation",
       "summary": "Record the owner-approved old-to-new mapping for the unpublished Source 2.0 draft and retain its review rationale.",
       "commits": [
+        "e6ee8ec95ac123b0af7e4c10a9ab42e0563a3b3a",
         "release-commit"
       ],
       "evidence": [
@@ -397,7 +398,7 @@
       }
     },
     "aggregate_gate": {
-      "status": "planned",
+      "status": "satisfied",
       "evidence": {
         "targets": [
           "source-2-check",
@@ -414,7 +415,7 @@
       }
     },
     "history_integrity": {
-      "status": "planned",
+      "status": "satisfied",
       "evidence": {
         "targets": [
           "source-2-pre-tag-check"

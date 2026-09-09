@@ -126,7 +126,7 @@
         "e97922e28d74f534b68fceb111a629ec44f09464",
         "d4408d3aeebaef2b0eca0f1cadd1f92f6256d2a1",
         "781cc83d13544b98fc9a64b9e070023f7353c355",
-        "release-commit"
+        "0a7ba8434c7b7d017621a24f269dc760c411e708"
       ],
       "evidence": [
         "config/reconstruction/source_structure.json",
@@ -148,6 +148,17 @@
         "smoke-level-playtest",
         "verify-sound-sequencer",
         "docs/content_authoring.md"
+      ]
+    },
+    {
+      "id": "draft-history-rewrite",
+      "kind": "documentation",
+      "summary": "Record the owner-approved old-to-new mapping for the unpublished Source 2.0 draft and retain its review rationale.",
+      "commits": [
+        "release-commit"
+      ],
+      "evidence": [
+        "docs/provenance/source_2_0_rewrite.md"
       ]
     }
   ],
@@ -490,6 +501,7 @@
     "docs/debugger_workflow.md",
     "docs/unknowns.md",
     "docs/provenance/labels.md",
+    "docs/provenance/source_2_0_rewrite.md",
     "config/reconstruction/label_renames.json",
     "docs/source_reconstruction_1_0.md",
     "docs/source_reconstruction_2_0.md",

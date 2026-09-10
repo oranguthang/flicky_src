@@ -18,7 +18,7 @@
   "delta_history": {
     "base_commit": "5a8f36505730ed5d11d91844271f3eb1f58ebdab",
     "tip": "release-commit",
-    "commit_count": 27
+    "commit_count": 28
   },
   "included_scope": [
     "canonical-preservation-profile",
@@ -276,13 +276,28 @@
       "kind": "tooling",
       "summary": "Preserve an existing verified ROM until p2bin has produced a successful replacement in the destination directory.",
       "commits": [
-        "release-commit"
+        "63a7d080367364e38834f8446d1b42f1cadafc2a"
       ],
       "evidence": [
         "scripts/build/build_rom.py",
         "tests/build/test_build_rom.py",
         "docs/build.md",
         "verify"
+      ]
+    },
+    {
+      "id": "trusted-level-capacities",
+      "kind": "tooling",
+      "summary": "Enforce level and special-tile capacities from trusted project configuration and reject altered workspace limits.",
+      "commits": [
+        "release-commit"
+      ],
+      "evidence": [
+        "config/authoring/content_studios.json",
+        "scripts/authoring/level_studio_model.py",
+        "tests/authoring/test_level_studio_model.py",
+        "docs/content_authoring.md",
+        "check-content-zero-edit"
       ]
     }
   ],
